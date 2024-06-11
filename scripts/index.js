@@ -6,10 +6,11 @@ openModalBtn.addEventListener("click", (event) => {
     modal.classList.toggle("modalHidden");
 })
 
-
 modal.addEventListener("click", (event) => {
     event.preventDefault();
-    modal.classList.toggle("modalHidden");
+    if (event.target === modal) {
+        modal.classList.toggle("modalHidden");
+    }
 })
 
 
