@@ -2,7 +2,6 @@ const openModalBtn = document.querySelector(".openModalBtn");
 const closeModalBtn = document.querySelector(".closeModalBtn");
 const modal = document.querySelector("#modal");
 const modalBody = document.querySelector("#modalBody");
-
 const input = document.querySelector("input");
 openModalBtn.addEventListener("click", (event) => {
     event.preventDefault();
@@ -28,11 +27,12 @@ modalBody.addEventListener("click", (event) => {
 
 
 document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
+    if (event.key === "Escape" && modal.checkVisibility()) {
         modal.classList.toggle("modalHidden");
         input.value = "";
     }
-    else if (event.key === "Enter") {
+
+    if (event.key === "Enter") {
         modal.classList.toggle("modalHidden");
     }
 });
