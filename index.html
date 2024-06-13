@@ -7,14 +7,24 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-  <button class="openModalBtn">Open modal</button>
+  <button class="openModalBtn">Log in</button>
   <div id="modal" class="modal modalContainer modalHidden">
     <div id="modalBody">
       <div>
         <p>Test modal</p>
         <button class="closeModalBtn">x</button>
       </div>
-      <input type="text">
+      <form class="loginForm" action="">
+        <label>
+          <input id="loginInput" type="text" placeholder="Login" autocomplete="username">
+        </label>
+        <label>
+          <input id="passwordInput" type="password" placeholder="Password" autocomplete="current-password">
+        </label>
+        <label>
+          <input id="loginBtn" type="submit" value="Войти">
+        </label>
+      </form>
     </div>
   </div>
   <script src="scripts/index.js"></script>
