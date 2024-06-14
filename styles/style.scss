@@ -21,15 +21,32 @@ button {
   position: absolute;
   top: 0;
   //left: 0;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.8s ease 0s;
 }
 
+.dialogWindow.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dialogWindow.open form {
+  opacity: 1;
+  transform: perspective(1200px) translate(0px, 0%) rotateX(0deg);
+}
 
 form {
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
+  transition: all 0.8s ease 0s;
+  transform: perspective(1200px) translate(0px, -100%) rotateX(45deg);
 }
+
+
 [type="submit"] {
   max-width: 320px;
   width: 100%;
@@ -38,6 +55,6 @@ form {
 
 
 
-.dialogWindowHidden {
-  display: none;
-}
+//.dialogWindowHidden {
+//  display: none;
+//}

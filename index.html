@@ -8,11 +8,11 @@
   </head>
   <body>
   <button>Open dialog window</button>
-  <div class="dialogWindow dialogWindowHidden">
+  <div class="dialogWindow">
     <form action="">
-      <input type="text" name="username" id="username">
-      <input type="text" name="cupon" id="cupon">
-      <input type="submit" />
+      <label for="username"></label><input type="text" name="username" id="username" placeholder="Enter username: ">
+      <label for="cupon"></label><input type="text" name="cupon" id="cupon" placeholder="Enter cupon: ">
+      <input class="sendInfoBtn" type="submit" />
     </form>
   </div>
   <script src="scripts/index.js"></script>
