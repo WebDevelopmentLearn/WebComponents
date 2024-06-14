@@ -20,16 +20,18 @@ button {
 
   position: absolute;
   top: 0;
-  //left: 0;
-
   opacity: 0;
   visibility: hidden;
   transition: all 0.8s ease 0s;
+
+  pointer-events: none;
 }
 
 .dialogWindow.open {
   opacity: 1;
   visibility: visible;
+
+  pointer-events: auto;
 }
 
 .dialogWindow.open form {
@@ -52,9 +54,3 @@ form {
   width: 100%;
   margin: 0 auto;
 }
-
-
-
-//.dialogWindowHidden {
-//  display: none;
-//}
