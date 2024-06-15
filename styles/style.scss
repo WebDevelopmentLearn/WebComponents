@@ -190,6 +190,7 @@ button {
 
 .loginDialogContent {
   @extend .signUpDialogContent;
+  pointer-events: auto; /* Убедитесь, что элементы могут получать события */
 }
 
 .loginDialogCloseBtn {
