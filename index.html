@@ -15,6 +15,90 @@
     />
     <!--    Подключение шрифта "Roboto"-->
   </head>
-  <body></body>
+  <body>
+    <button class="signUpDialogOpenBtn">Регистрация</button>
+    <button class="loginDialogOpenBtn">Авторизоваться</button>
+    <div class="signUpDialogOverlay">
+      <div class="signUpDialogWindow">
+        <div class="signUpDialogContent">
+          <button class="signUpDialogCloseBtn">X</button>
+          <h2 class="signUpDialogTitle">Регистрация</h2>
+          <form id="signUpDialogForm" autocomplete="on">
+            <label>
+              <input
+                type="text"
+                name="username"
+                class="signUpUsernameInput universalInput"
+                placeholder="Имя пользователя"
+                autocomplete="on"
+                required
+              />
+            </label>
+            <label>
+              <input
+                type="tel"
+                name="phoneNumber"
+                class="signUpPhoneNumberInput universalInput"
+                placeholder="Номер телефона"
+                required
+              />
+            </label>
+            <label>
+              <input type="email" name="email" class="signUpEmailInput universalInput" placeholder="Email" required />
+            </label>
+            <label>
+              <input
+                type="password"
+                name="password"
+                class="signUpPasswordInput universalInput"
+                placeholder="Пароль"
+                autocomplete="on"
+                required
+              />
+            </label>
+            <p class="statusMessage"></p>
+            <button class="signUpBtn universalBtn" type="submit">Зарегистрироваться</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="loginDialogOverlay">
+      <div class="loginDialogWindow">
+        <div class="loginDialogContent">
+          <button class="loginDialogCloseBtn">X</button>
+          <h2 class="loginDialogTitle">Авторизация</h2>
+          <form class="loginDialogForm" action="">
+            <label>
+              <input
+                type="text"
+                name="username"
+                class="loginUsernameInput universalInput"
+                placeholder="Имя пользователя"
+                autocomplete="on"
+                required
+              />
+            </label>
+            <label>
+              <input
+                type="password"
+                name="password"
+                class="loginPasswordInput universalInput"
+                placeholder="Пароль"
+                autocomplete="on"
+                required
+              />
+            </label>
+            <label class="rememberPasswordLabel">
+              <span> Запомнить меня </span>
+              <input type="checkbox" name="rememberPassword" class="rememberPasswordCheckbox" />
+            </label>
+            <p class="statusLoginMessage"></p>
+            <button class="loginBtn universalBtn" type="submit">Войти</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
   <script src="scripts/index.js"></script>
 </html>
