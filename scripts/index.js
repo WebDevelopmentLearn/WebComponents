@@ -71,17 +71,17 @@ function previousImage() {
   } else if (currentImg <= 0) {
     currentImg = images.length - 1;
   }
-  cards.style.left = `${-1 * currentImg * 500}px`;
+  updateSlider();
+  //   cards.style.left = `${-1 * currentImg * 500}px`;
 }
 function nextImage() {
   if (currentImg < images.length - 1) {
-    isAnimating = true;
     currentImg++;
   } else if (currentImg >= images.length - 1) {
-    isAnimating = true;
     currentImg = 0;
   }
-  cards.style.left = `${-1 * currentImg * 500}px`;
+  updateSlider();
+  //   cards.style.left = `${-1 * currentImg * 500}px`;
 }
 
 //============== rounds ========================
@@ -93,21 +93,28 @@ function createRounds() {
   images.forEach((el, index) => {
     const round = document.createElement("button");
     container.append(round);
-
-    const allBtns = round.parentElement.children;
     if (index === 0) {
       round.classList.add("active");
     }
     round.addEventListener("click", () => {
       currentImg = index;
-      for (let index = 0; index < allBtns.length; index++) {
-        const element = allBtns[index];
-        element.classList.remove("active");
-      }
-      round.classList.add("active");
-      cards.style.left = `${-1 * currentImg * 500}px`;
+      updateSlider();
     });
   });
   frame.append(container);
 }
 createRounds();
+
+function updateSlider() {
+  const allButtons = document.querySelectorAll(".rounds button");
+  cards.style.left = `${-1 * currentImg * 500}px`;
+
+  for (let index = 0; index < allButtons.length; index++) {
+    const element = allButtons[index];
+    if (index === currentImg) {
+      element.classList.add("active");
+    } else {
+      element.classList.remove("active");
+    }
+  }
+}
