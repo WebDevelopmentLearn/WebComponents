@@ -6,33 +6,37 @@ const images = [
   "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Altdorfer-Donau.jpg/220px-Altdorfer-Donau.jpg",
   "https://images.ctfassets.net/hrltx12pl8hq/a2hkMAaruSQ8haQZ4rBL9/8ff4a6f289b9ca3f4e6474f29793a74a/nature-image-for-website.jpg?fit=fill&w=600&h=400",
 
-  "../assets/gallery/image1.jpg",
-  "../assets/gallery/image2.jpg",
-  "../assets/gallery/image3.jpg",
-  "../assets/gallery/image4.jpg",
-  "../assets/gallery/image5.jpg",
-  "../assets/gallery/image6.jpg",
-  "../assets/gallery/image7.jpg",
-  "../assets/gallery/image8.jpg",
-  "../assets/gallery/image9.jpg",
-  "../assets/gallery/image10.jpg",
-  "../assets/gallery/image11.jpg",
-  "../assets/gallery/image12.jpg",
+  //   "../assets/gallery/image1.jpg",
+  //   "../assets/gallery/image2.jpg",
+  //   "../assets/gallery/image3.jpg",
+  //   "../assets/gallery/image4.jpg",
+  //   "../assets/gallery/image5.jpg",
+  //   "../assets/gallery/image6.jpg",
+  //   "../assets/gallery/image7.jpg",
+  //   "../assets/gallery/image8.jpg",
+  //   "../assets/gallery/image9.jpg",
+  //   "../assets/gallery/image10.jpg",
+  //   "../assets/gallery/image11.jpg",
+  //   "../assets/gallery/image12.jpg",
 ];
 
 const frame = document.createElement("div");
 const cards = document.createElement("div");
-const prevousImageBtn = document.createElement("img");
-prevousImageBtn.src = "../assets/previous_arrow.svg";
-prevousImageBtn.classList.add("prevousImageBtn");
-const nextImageBtn = document.createElement("img");
-nextImageBtn.src = "../assets/next_arrow.svg";
-nextImageBtn.classList.add("nextImageBtn");
+const triggers = document.createElement("div");
+const previousImageBtn = document.createElement("button");
+const nextImageBtn = document.createElement("button");
 
+triggers.classList.add("triggers");
+previousImageBtn.classList.add("prevousImageBtn");
+nextImageBtn.classList.add("nextImageBtn");
 frame.classList.add("frame");
 cards.classList.add("cards");
 
-frame.append(cards, prevousImageBtn, nextImageBtn);
+previousImageBtn.textContent = "<";
+nextImageBtn.textContent = ">";
+
+triggers.append(previousImageBtn, nextImageBtn);
+frame.append(cards, triggers);
 root.append(frame);
 
 images.forEach((image) => {
@@ -46,9 +50,7 @@ images.forEach((image) => {
 });
 
 let currentImg = 0;
-let isAnimating = false;
-
-prevousImageBtn.addEventListener("click", previousImage);
+previousImageBtn.addEventListener("click", previousImage);
 
 nextImageBtn.addEventListener("click", nextImage);
 
@@ -64,42 +66,48 @@ document.addEventListener("keydown", (event) => {
 });
 
 function previousImage() {
-  if (isAnimating) return;
-  const card = document.querySelector(".card");
-  if (card) {
-    let width = Number(getComputedStyle(cards).left.split("px")[0]);
-    if (currentImg != 0) {
-      isAnimating = true;
-      currentImg--;
-      width += 500;
-    } else if (currentImg <= 0) {
-      isAnimating = true;
-      currentImg = images.length - 1;
-      width -= 500 * currentImg;
-    }
-    cards.style.left = `${width}px`;
-    setTimeout(() => {
-      isAnimating = false;
-    }, 500);
+  if (currentImg != 0) {
+    currentImg--;
+  } else if (currentImg <= 0) {
+    currentImg = images.length - 1;
   }
+  cards.style.left = `${-1 * currentImg * 500}px`;
 }
 function nextImage() {
-  if (isAnimating) return;
-  const card = document.querySelector(".card");
-  if (card) {
-    let width = Number(getComputedStyle(cards).left.split("px")[0]);
-    if (currentImg < images.length - 1) {
-      isAnimating = true;
-      currentImg++;
-      width -= 500;
-    } else if (currentImg >= images.length - 1) {
-      isAnimating = true;
-      currentImg = 0;
-      width = 0;
-    }
-    cards.style.left = `${width}px`;
-    setTimeout(() => {
-      isAnimating = false;
-    }, 500);
+  if (currentImg < images.length - 1) {
+    isAnimating = true;
+    currentImg++;
+  } else if (currentImg >= images.length - 1) {
+    isAnimating = true;
+    currentImg = 0;
   }
+  cards.style.left = `${-1 * currentImg * 500}px`;
 }
+
+//============== rounds ========================
+
+function createRounds() {
+  const container = document.createElement("div");
+  container.classList.add("rounds");
+
+  images.forEach((el, index) => {
+    const round = document.createElement("button");
+    container.append(round);
+
+    const allBtns = round.parentElement.children;
+    if (index === 0) {
+      round.classList.add("active");
+    }
+    round.addEventListener("click", () => {
+      currentImg = index;
+      for (let index = 0; index < allBtns.length; index++) {
+        const element = allBtns[index];
+        element.classList.remove("active");
+      }
+      round.classList.add("active");
+      cards.style.left = `${-1 * currentImg * 500}px`;
+    });
+  });
+  frame.append(container);
+}
+createRounds();
