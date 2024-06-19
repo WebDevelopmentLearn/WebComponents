@@ -15,7 +15,7 @@ body {
   // justify-content: center;
 }
 /* ================ START OF MODAL ==================== */
-.modalOverlay {
+.modalCreateOrderOverlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -31,17 +31,17 @@ body {
   justify-content: center;
   align-items: center;
 }
-.modalOverlay.open {
+.modalCreateOrderOverlay.open {
   opacity: 1;
   visibility: visible;
   transition: all 0.8s ease 0s;
 }
 
-.modalOverlay.open .modalCreateOrder {
+.modalCreateOrderOverlay.open .modalCreateOrderWindow {
   opacity: 1;
 }
 
-.modalCreateOrder {
+.modalCreateOrderWindow {
   max-width: 320px;
   background-color: rgb(166, 245, 255);
   border-radius: 16px;

@@ -17,17 +17,17 @@
   </head>
   <body>
     <button class="openCreateOrderModalBtn">Создать заказ</button>
-    <div class="modalOverlay">
-      <div class="modalCreateOrder">
+    <div class="modalCreateOrderOverlay">
+      <div class="modalCreateOrderWindow">
         <form action="">
           <label for="">
-            <input type="text" placeholder="Адрес" />
+            <input class="createOrderAddressInput" type="text" placeholder="Адрес" required />
           </label>
           <label for="">
-            <input type="text" placeholder="Цена" />
+            <input class="createOrderPriceInput" type="text" placeholder="Цена" required />
           </label>
           <label for="">
-            <input type="text" placeholder="Получатель" />
+            <input class="createOrderRecipientInput" type="text" placeholder="Получатель" required />
           </label>
           <label for="">
             <input class="createOrderBtn" type="submit" />
