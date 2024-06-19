@@ -9,19 +9,13 @@ html {
   font-size: 10px;
 }
 
-// body {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   position: relative;
-//   background-color: #545454;
-// }
+button {
+  cursor: pointer;
+}
 
 .cards {
   display: grid;
   grid-auto-flow: column;
-  // border: 5px solid rgb(56, 186, 56);
   position: absolute;
   left: 0;
   transition: left 0.5s ease;
@@ -30,7 +24,6 @@ html {
 .frame {
   width: 500px;
   height: 500px;
-  // border: 5px solid red;
   position: relative;
   overflow: hidden;
 }
@@ -87,23 +80,3 @@ html {
 .rounds .active {
   background-color: #e67e22;
 }
-
-// .prevousImageBtn {
-//   width: 50px;
-//   height: 100%;
-//   background-color: rgba(0, 0, 0, 0.2);
-//   position: absolute;
-//   top: 50%;
-//   left: 5%;
-//   transform: translate(-50%, -50%);
-// }
-
-// .nextImageBtn {
-//   width: 50px;
-//   height: 100%;
-//   background-color: rgb(0, 0, 0, 0.2);
-//   position: absolute;
-//   top: 50%;
-//   right: 0;
-//   transform: translate(0%, -50%);
-// }

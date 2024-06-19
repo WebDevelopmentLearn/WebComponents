@@ -6,18 +6,18 @@ const images = [
   "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Altdorfer-Donau.jpg/220px-Altdorfer-Donau.jpg",
   "https://images.ctfassets.net/hrltx12pl8hq/a2hkMAaruSQ8haQZ4rBL9/8ff4a6f289b9ca3f4e6474f29793a74a/nature-image-for-website.jpg?fit=fill&w=600&h=400",
 
-  //   "../assets/gallery/image1.jpg",
-  //   "../assets/gallery/image2.jpg",
-  //   "../assets/gallery/image3.jpg",
-  //   "../assets/gallery/image4.jpg",
-  //   "../assets/gallery/image5.jpg",
-  //   "../assets/gallery/image6.jpg",
-  //   "../assets/gallery/image7.jpg",
-  //   "../assets/gallery/image8.jpg",
-  //   "../assets/gallery/image9.jpg",
-  //   "../assets/gallery/image10.jpg",
-  //   "../assets/gallery/image11.jpg",
-  //   "../assets/gallery/image12.jpg",
+  "../assets/gallery/image1.jpg",
+  "../assets/gallery/image2.jpg",
+  "../assets/gallery/image3.jpg",
+  "../assets/gallery/image4.jpg",
+  "../assets/gallery/image5.jpg",
+  "../assets/gallery/image6.jpg",
+  "../assets/gallery/image7.jpg",
+  "../assets/gallery/image8.jpg",
+  "../assets/gallery/image9.jpg",
+  "../assets/gallery/image10.jpg",
+  "../assets/gallery/image11.jpg",
+  "../assets/gallery/image12.jpg",
 ];
 
 const frame = document.createElement("div");
@@ -101,6 +101,13 @@ function createRounds() {
       updateSlider();
     });
   });
+  if (images.length > 10) {
+    for (let i = 0; i < container.children.length; i++) {
+      const element = container.children[i];
+      element.style.width = "10px";
+      element.style.height = "10px";
+    }
+  }
   frame.append(container);
 }
 createRounds();
