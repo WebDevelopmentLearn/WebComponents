@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Components</title>
+    <title>Notification</title>
     <link rel="stylesheet" href="styles/style.css" />
 
     <!--    Подключение шрифта "Roboto"-->
@@ -16,7 +16,29 @@
     <!--    Подключение шрифта "Roboto"-->
   </head>
   <body>
-    <div id="root"></div>
+    <button class="openCreateOrderModalBtn">Создать заказ</button>
+    <div class="modalOverlay">
+      <div class="modalCreateOrder">
+        <form action="">
+          <label for="">
+            <input type="text" placeholder="Адрес" />
+          </label>
+          <label for="">
+            <input type="text" placeholder="Цена" />
+          </label>
+          <label for="">
+            <input type="text" placeholder="Получатель" />
+          </label>
+          <label for="">
+            <input class="createOrderBtn" type="submit" />
+          </label>
+        </form>
+      </div>
+    </div>
+    <!-- <div class="notificationContainer">
+      <h2>Hello There!</h2>
+      <p>Example text</p>
+    </div> -->
   </body>
   <script src="scripts/index.js"></script>
 </html>
