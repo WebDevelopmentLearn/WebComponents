@@ -34,17 +34,15 @@ modalCreateOrderWindow.addEventListener("click", (event) => {
 
 createOrderForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  // if (validateRecipient(createOrderRecipientInput.value) && validatePrice(createOrderPriceInput.value)) {
-  //   // setTimeout(() => {
-
-  //   // }, 3000);
-  //   modalCreateOrderOverlay.classList.remove("open");
-  //   createNotification("green", "Заказ создан", "Ожидайте дальнейшей информации");
-  // } else {
-  //   console.log(12521521215);
-  // }
-  modalCreateOrderOverlay.classList.remove("open");
-  createNotification("created");
+  console.log(validateRecipient(createOrderRecipientInput.value), validatePrice(createOrderPriceInput.value));
+  if (validateRecipient(createOrderRecipientInput.value) && validatePrice(createOrderPriceInput.value)) {
+    setTimeout(() => {
+      modalCreateOrderOverlay.classList.remove("open");
+      createNotification("created");
+    }, 3000);
+  } else {
+    createNotification("failed");
+  }
 });
 
 function createNotification(type) {
@@ -83,15 +81,7 @@ function createNotification(type) {
 }
 
 function validateRecipient(username) {
-  let flag = false;
-  for (let i = 0; i < username.length; i++) {
-    const element = username[i];
-    if (hasDigits.test(element) || !hasLetters.test(element)) {
-      flag = true;
-      break;
-    }
-  }
-  return !flag && username.length >= 2 && username.length <= 24;
+  return hasLetters.test(username) && !hasDigits.test(username) && username.length >= 2 && username.length <= 24;
 }
 
 function validatePrice(price) {
