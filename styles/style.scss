@@ -25,13 +25,11 @@ p {
   display: flex;
   align-items: center;
   gap: 20px;
-  // height: 50px;
   background-color: rgb(114, 243, 250);
 }
 
 .sidebarBtn {
   width: 50px;
-  // background-color: gray;
   display: flex;
   gap: 5px;
   flex-direction: column;
@@ -88,38 +86,63 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // gap: 20px;
-  list-style: none;
+  gap: 20px;
 
   li {
-    width: 90%;
-    padding: 4%;
-    border-radius: 8px;
+    width: 100%;
+    padding: 10px 15px;
+
+    list-style: none;
     background-color: rgb(242, 189, 115);
-    transition: all 0.5s;
-    // position: relative;
+    border-radius: 8px;
+
+    a {
+      text-decoration: none;
+      color: #000000;
+      transition: all 0.5s;
+
+      &:hover {
+        background-color: rgb(255, 192, 105);
+      }
+    }
 
     &:hover {
-      background-color: rgb(255, 189, 96);
-      transform: scale(1.05);
+      background-color: rgb(255, 192, 105);
+      //transform: scale(1.05);
     }
   }
 
-  a {
-    text-decoration: none;
-    color: #000000;
-  }
-
-  .others {
-    position: relative;
-  }
-
   ul {
-    position: absolute;
-    // top: 0;
-    left: 0;
+    width: 115px;
+    display: none;
+    transition: all 0.5s;
+
+    & > li {
+      margin-bottom: 5px;
+    }
+
+    &:hover > li:hover {
+      background-color: rgb(246, 190, 56);
+    }
   }
 }
+
+.sidebarContentList li:hover > ul {
+  display: block;
+
+}
+
+.othersList {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.othersList > li {
+  width: 100%;
+}
+
+
 
 @media screen and (max-width: 425px) {
   .header {
